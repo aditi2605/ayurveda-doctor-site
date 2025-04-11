@@ -1,7 +1,20 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+} */
 
 :root {
-  --background: #ffffff;
+  --background: #f9f7f3; /* outer container */
+  --card-background: #fefdfb; /* inner card */
+  --border-color: #eaeaea;
+  --shadow-color: rgba(0, 0, 0, 0.08);
   --foreground: #171717;
 }
 
@@ -14,13 +27,164 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    /* --background: #0a0a0a; */
     --foreground: #ededed;
   }
 }
 
+.bg-background {
+  background-color: var(--background);
+}
+
+.bg-card {
+  background-color: var(--card-background);
+}
+
+.text-foreground {
+  color: var(--foreground);
+}
+
+.shadow-card {
+  box-shadow: 0 12px 24px var(--shadow-color);
+}
+
+.border-subtle {
+  border: 1px solid var(--border-color);
+}
+
 body {
+  margin: 0;
+  padding: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.tilted-book {
+  transform: rotateX(5deg) rotateY(-5deg);
+  transform-style: preserve-3d;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+/* info section */
+.flip-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+
+.transform-style {
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+@keyframes orbit-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes orbit-core {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* One orbit animation per card index */
+@keyframes orbit-0 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes orbit-1 {
+  from { transform: rotate(60deg); }
+  to { transform: rotate(420deg); }
+}
+@keyframes orbit-2 {
+  from { transform: rotate(120deg); }
+  to { transform: rotate(480deg); }
+}
+@keyframes orbit-3 {
+  from { transform: rotate(180deg); }
+  to { transform: rotate(540deg); }
+}
+@keyframes orbit-4 {
+  from { transform: rotate(240deg); }
+  to { transform: rotate(600deg); }
+}
+@keyframes orbit-5 {
+  from { transform: rotate(300deg); }
+  to { transform: rotate(660deg); }
+}
+@keyframes orbit-6 {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(720deg); }
+}
+
+
+
+.chakra-glow:hover {
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 0 30px rgba(255, 255, 255, 0.3),
+    0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.core-glow:hover {
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.animate-spin-slow {
+  animation: spin-slow 30s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 45s linear infinite;
+}
+
+
+.card-circle {
+  box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.08), 0 6px 14px rgba(0, 0, 0, 0.1);
+  border-radius: 9999px;
+}
+
