@@ -42,80 +42,116 @@ const Infosection = () => {
      const router = useRouter();
      
   return (
-    <section className="relative w-full min-h-[800px] flex items-center justify-center px-4 py-16 overflow-hidden bg-[#F0EAD6]">
+    <section className="relative w-full flex flex-col items-center justify-center px-4 py-20 bg-[#F0EAD6] mb-96">
 
-          {/* Background Glow */}
-          <div className="absolute w-[800px] h-[800px] rounded-full blur-3xl opacity-20 pointer-events-none"></div>
+      {/* Soft radial background glow */}
+      <div className="absolute w-[100px] h-[100px] rounded-full bg-gradient-radial from-[#e0f2f1] to-transparent blur-3xl opacity-20 z-0" />
 
-         {/* Section Heading */}
-          <div className="mb-96 z-10 text-center">
-            <h2 className="text-5xl font-semibold text-emerald-900 mb-4 text-[#6B705C] italic">
-              Your Journey Toward Balance Begins Here
-            </h2>
-            <p className="text-xl text-gray-500 mb-96">
-              Each layer represents a step inward — from our services, into your core.
-            </p>
-          </div>
-          
-          {/* Center Chakra */}
-          <div className="absolute top-1/2 left-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-green-300 to-green-500 text-white rounded-full flex items-center justify-center text-center shadow-xl animate-pulse font-semibold">
-            <span className="text-sm md:text-lg leading-tight">
-              Our<br />Services
-            </span>
-          </div>
+      {/* Section Heading */}
+      <div className="z-10 text-center mb-32 sm:mb-80 md:mb-75 lg:mb-85 px-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-emerald-900 text-[#6B705C] italic mb-4">
+          Your Journey Toward Balance Begins Here
+        </h2>
+        <p className="text-md sm:text-lg text-gray-600 max-w-xl mx-auto">
+          Each layer represents a step inward — from our services, into your core.
+        </p>
+      </div>
 
+      {/* All chakra section */}
+      <div className="relative w-full flex justify-center items-center py-12">
+        
+      {/* Center Chakra */}
+      <div className="absolute top-1/2 left-1/2 z-20 transform -translate-x-1/4 -translate-y-1/4 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-green-300 to-green-500 text-white rounded-full flex items-center justify-center text-center shadow-xl animate-pulse font-semibold">
+        <span className="text-sm md:text-lg leading-tight">
+          Our<br />Services
+        </span>
+      </div>
 
-          {/* Outer circle - Services */}
-          {services.map((service, i) => (
+      {/* Outer Orbit: Services */}
+      <div className="relative -translate-y-8 -translate-x-8">
+        {services.map((service, i) => {
+          // Responsive orbit radius (tighter on small screens)
+          const orbitRadius = typeof window !== 'undefined' && window.innerWidth < 768 ? 150 : 250;
+          const angle = i * (360 / services.length);
+          const rotate = `rotate(${angle}deg)`;
+          const translate = `translate(0, -${orbitRadius}px)`;
+          const reverseRotate = `rotate(-${angle}deg)`;
+
+          return (
             <div
               key={i}
-              className="absolute top-[45%] left-[45%]"
+              className="absolute top-1/2 left-1/2"
               style={{
-                animation: `orbit-reverse 55s linear infinite`,
+                animation: `orbit-reverse 70s linear infinite`,
                 transformOrigin: "center center",
               }}
             >
               <div
                 style={{
-                  transform: `rotate(${i * (360 / services.length)}deg) translate(0, -280px) rotate(-${i * (360 / services.length)}deg)`
+                  transform: `${rotate} ${translate} ${reverseRotate}`,
                 }}
               >
-                <button
-                  onClick={() => router.push(`/ourservices`)}
-                  className="w-32 h-18 md:w-36 md:h-36 rounded-full flex items-center justify-center text-white font-medium text-xs md:text-sm leading-tight text-center px-2 hover:scale-105 transition-transform duration-200 shadow-md"
-                  style={{ backgroundColor: chakraColors[i % chakraColors.length] }}
-                >
-                  <span className="truncate px-1">{service.title}</span>
-                </button>
+                <div className="relative">
+                  {/* Glow */}
+                  <div className="absolute inset-0 rounded-full blur-2xl bg-blue-200 opacity-10 z-0" />
+                  <button
+                    onClick={() => router.push(`/ourservices`)}
+                    className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32
+                              rounded-full flex items-center justify-center
+                              text-white font-semibold text-xs sm:text-sm md:text-base text-center px-2
+                              hover:scale-105 transition-transform duration-200 shadow-lg relative z-10"
+                    aria-label={service.title}
+                    style={{
+                      backgroundImage: `url('/assets/images/info-ayurveda.jpg')`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      backgroundBlendMode: "multiply",
+                      backgroundColor: "rgba(0,0,0,0.5)",
+                      color: "#fff",
+                    }}
+                  >
+                    <span className="bg-glass text-white text-center px-3 py-1 rounded-full text-sm font-medium">
+                      {service.title}
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
-          ))}
-
-          {/* Inner circle */}
-          {coreValues.map((value, i) => (
+          );
+        })}
+      </div>
+      
+      {/* Inner circle: Core Values */}
+      {/* {coreValues.map((value, i) => (
+        <div
+          key={`core-${i}`}
+          className="absolute top-[60%] left-[50%]"
+          style={{
+            animation: `orbit-core 50s linear infinite`,
+            transformOrigin: "center center",
+          }}
+        >
+          <div
+            style={{
+              transform: `rotate(${i * (360 / coreValues.length)}deg) translate(0, -140px) rotate(-${i * (360 / coreValues.length)}deg)`
+            }}
+          >
             <div
-              key={`core-${i}`}
-              className="absolute top-[47%] left-[48%]"
+              className="w-14 h-14 md:w-16 md:h-16 rounded-full shadow-md flex items-center justify-center text-center text-xs font-medium hover:scale-105 transition"
               style={{
-                animation: `orbit-core 50s linear infinite`,
-                transformOrigin: "center center",
+                backgroundColor: coreColors[i % coreColors.length],
+                color: "#333"
               }}
             >
-            <div
-              style={{
-                transform: `rotate(${i * (360 / coreValues.length)}deg) translate(0, -130px) rotate(-${i * (360 / coreValues.length)}deg)`
-              }}
-            >
-              <div
-                className="w-14 h-14 md:w-18 md:h-18 rounded-full shadow-sm flex items-center justify-center text-center text-[13px] font-medium hover:scale-105 transition"
-                style={{ backgroundColor: coreColors[i % coreColors.length] }}
-              >
-                {value}
-              </div>
+              {value}
             </div>
           </div>
-        ))}
-        </section>
+        </div>
+      ))} */}
+      </div>
+
+
+    </section>
   )
 }
 

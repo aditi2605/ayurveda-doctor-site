@@ -59,13 +59,33 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-
+/* 
 .tilted-book {
   transform: rotateX(5deg) rotateY(-5deg);
   transform-style: preserve-3d;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease-in-out;
+} */
+
+/* .tilted-book {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+} */
+
+.book-v-shape {
+  perspective: 1900px; /* depth of field */
+  transform-style: preserve-3d;
 }
+
+.tilted-book {
+  transform: rotateX(6deg) rotateY(-4deg); /* adjust angle here */
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3), inset 0 0 5px rgba(0,0,0,0.05); /* bottom shadow */
+  border-radius: 14px;
+  overflow: visible;
+}
+
+
 
 /* info section */
 .flip-card {
@@ -129,6 +149,14 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.bg-glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
 
 
 /* One orbit animation per card index */

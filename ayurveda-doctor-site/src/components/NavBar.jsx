@@ -84,7 +84,12 @@ export const NavBar = () => {
                height={40}
                className="object-cover"
             />
-            <h1 className="text-lg font-bold tracking-tight text-[#4B3425] mt-2">Dr. Maya Parikh</h1>
+            <h1
+              onClick={() => router.push("/")}
+              className="text-lg font-bold tracking-tight text-[#4B3425] mt-2"
+            >
+              Dr. Maya Parikh
+            </h1>
         </div>
   
         {/* Desktop Menu */}
@@ -94,7 +99,7 @@ export const NavBar = () => {
               key={item}
               onClick={() => handleClick(index)}
               className={`inline-block rounded-lg px-2 py-1 text-md font-medium transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 ${
-                index === activeIndex ? "text-[#B36A5E] underline" : "text-gray-900"
+                index === activeIndex ? "text-[#69b35e] underline" : "text-gray-900"
               }`}
             >
               {item}
@@ -103,7 +108,7 @@ export const NavBar = () => {
         </div>
   
         {/* Search Box */}
-        <div className="hidden sm:flex items-center justify-end gap-2">
+        {/* <div className="hidden sm:flex items-center justify-end gap-2">
           <div className="relative">
             <input
               type="text"
@@ -126,7 +131,7 @@ export const NavBar = () => {
               </svg>
             </div>
           </div>
-        </div>
+        </div> */}
   
         {/* Mobile Burger Icon */}
         <div className="md:hidden">

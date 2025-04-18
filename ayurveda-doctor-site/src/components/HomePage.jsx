@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Flower, Droplet, Sparkle, Sprout, Leaf} from "lucide-react";
 import { motion } from "framer-motion";
-import HeroImg from "../../public/assets/images/hero_img.jpg";
+// import HeroImg from "../../public/assets/images/hero_img.jpg";
 // import HeroVideo from "../../public/assets/images/hero_video.mp4";
 import DoshaBook from './DoshaBook';
 import Infosection from './Infosection';
@@ -70,9 +70,48 @@ const HomePage = () => {
           </div>
         </section>
 
+        {/* About us Intro */}
+
+        <section className="bg-[#f9f7f4] px-6 py-20">
+          <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
+            {/* Text Section */}
+            <div className="w-full md:w-1/2">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#6B705C] mb-6">
+                Rooted in Tradition, Guided by Nature
+              </h2>
+              <span className='text-sm font-style:italic text-gray-500'>“We offer Ayurvedic care that is gentle, grounded, and deeply rooted in nature’s rhythm — for those seeking not just healing, but homecoming.”</span>
+              <p className="text-gray-700 text-md leading-relaxed mt-4 mb-4">
+                We believe that healing is not a cure — but a quiet return. A gentle remembering of the body’s innate rhythm.
+                At the heart of our practice lies Ayurveda — a time-honoured science of balance, deeply entwined with nature’s wisdom.
+              </p>
+              <p className="text-gray-700 text-md">
+                With reverence for ancient tradition and compassion at our core, we offer an oasis of calm in a hurried world.
+                Whether you seek clarity, vitality, or stillness, our space is yours to come home to.
+              </p>
+              <button 
+                onClick={() => router.push("/about")}
+                className="mt-6 bg-[#6B705C] text-white font-medium px-6 py-3 rounded-full shadow-md hover:bg-[#5a604f] transition">
+                Learn More About Us
+              </button>
+            </div>
+
+            {/* Image Section */}
+            <div className="w-full md:w-1/2">
+              <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src="/assets/images/about-ayurveda.jpg"
+                  alt="Healing hands with herbs"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+
 
         {/* DoshaBook section*/ }
-        <section id="doshaBook-section" className="pt-20">
+        <section id="doshaBook-section" className="mt-10 ">
           <h1 className="text-4xl md:text-5xl font-semibold text-center text-[#6B705C] italic mb-10">
             Discover the Ancient Wisdom of <span className="not-italic font-bold text-emerald-900">Ayurveda</span>
           </h1>

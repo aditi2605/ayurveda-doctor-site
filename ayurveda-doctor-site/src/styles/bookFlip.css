@@ -1,4 +1,8 @@
 .book-container {
+    width:100%;
+    overflow-x: hidden;
+    padding:1rem;
+    box-sizing: border-box;
     perspective: 2000px;
     display: flex;
     flex-direction: column;
@@ -6,9 +10,11 @@
   }
   
   .book {
+    width: 100%;
+    max-width: 660px;
+    height: auto;
+    aspect-ratio: 11 / 5; /* Optional for responsive height */
     position: relative;
-    width: 660px;
-    height: 300px;
     transform-style: preserve-3d;
   }
   
@@ -25,7 +31,13 @@
     cursor: pointer;
     background: #fff;
   }
-  
+
+  @media (max-width: 768px) {
+    .page {
+      padding: 1rem;
+    }
+  }
+
   .page.left {
     left: 0;
     transform-origin: left;

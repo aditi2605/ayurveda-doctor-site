@@ -1,9 +1,10 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import HTMLFlipBook from 'react-pageflip';
 import "../styles/bookFlip.css";
+import "../styles/globals.css";
 
 const pages = [
 
@@ -70,62 +71,93 @@ const pages = [
   ];
 
   const Page = React.forwardRef(({ title, content, image }, ref) => {
+
     return (
       <div
       ref={ref}
-      className="bg-white p-6 rounded-xl shadow-2xl flex flex-col justify-center items-center text-center"
+      className="bg-[url('/assets/images/parchment-texture.jpg')] bg-cover bg-no-repeat bg-[#fefaf3]relative before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-[#fff5] before:to-transparent h-full px-6 sm:px-8 py-10 rounded-2xl shadow-2xl flex flex-col justify-center items-center text-center"
     >
-      {title && <h2 className="text-2xl font-bold text-center mb-4 text-[#6B705C] italic mt-28">{title}</h2>}
-      {content && <p className="text-md font-bold text-center text-[#2C2C2C] mb-4">{content}</p>}
-
-      {image && (
-        <div className="relative w-full h-64 mt-18">
-          <Image
-            src={image}
-            alt={title || 'Dosha Image'}
-            fill
-            className="object-contain rounded-xl"
-            sizes="(max-width: 768px) 100vw, 400px"
-          />
-        </div>
-      )}
+      <div className="w-full max-w-[90%] sm:max-w-[85%] md:max-w-[80%] lg:max-w-[75%] mx-auto">
+        {title && (
+          <h2 className="text-2xl mt-10 md:text-3xl lg:text-4xl font-serif font-semibold italic text-[#5A6650] mb-6 drop-shadow-sm">
+          {title}
+        </h2>
+        )}
+    
+        {content && (
+          <p className="text-base sm:text-lg leading-relaxed text-[#3C3C3C]  tracking-wide font-bold ">
+            {content}
+          </p>
+        )}
+    
+        {image && (
+          <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 mt-6">
+            <Image
+              src={image}
+              alt={title || 'Dosha Image'}
+              fill
+              className="object-contain rounded-xl mt-2  md:mt-5 lg:mt-10 xl:mt-10"
+              sizes="(max-width: 768px) 100vw, 800px"
+            />
+          </div>
+        )}
+      </div>
     </div>
+    
+
     );
   });
   Page.displayName = 'Page';
 const DoshaBook = () => {
-   
 
+  const [dimensions, setDimensions] = useState({ width: 300, height: 400 });
+
+    useEffect(() => {
+      const updateSize = () => {
+        const isMobile = window.innerWidth <= 768;
+        setDimensions({
+          width: isMobile ? 300 : 600,
+          height: isMobile ? 400 : 700,
+        });
+      };
+    
+      updateSize(); // call once on mount
+      window.addEventListener("resize", updateSize);
+    
+      return () => window.removeEventListener("resize", updateSize);
+    }, []);
+   
   
   return (
-    <div className="flex justify-center items-center bg-grey" >
+    <div className="relative flex justify-center items-center py-12 book-v-shape">
+    {/* <div className="mx-auto max-w-full md:max-w-[90%] lg:max-w-[850px]"> */}
+
       <HTMLFlipBook
-        width={800}
-        height={800}
+        width={600}
+        height={700}
         size="stretch"
         minWidth={300}
-        maxWidth={800}
+        maxWidth={700}
         minHeight={400}
         maxHeight={1000}
-        drawShadow={true}
+        drawShadow
         flippingTime={1000}
-        useMouseEvents={true}
-        className="shadow-2xl rounded-2xl tilted-book"  
-        style={{
-          borderRadius: "12px",
-          boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
-        }}
+        useMouseEvents
+        className="shadow-2xl rounded-2xl tilted-book"
         startPage={0}
         usePortrait={false}
         startZIndex={0}
-        autoSize={true}
-        clickEventForward={true}
+        autoSize
+        clickEventForward
       >
         {pages.map((page, index) => (
-          <Page key={index} title={page.title} content={page.content} image={page.image}  />
+          <Page key={index} title={page.title} content={page.content} image={page.image} />
         ))}
       </HTMLFlipBook>
-    </div>
+    {/* </div> */}
+    
+  </div>
+  
   )
 }
 
