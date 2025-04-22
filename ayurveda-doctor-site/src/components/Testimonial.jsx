@@ -42,7 +42,7 @@ const testimonials = [
         name: "James Crawford",
         handle: "@jcrawwellness",
         quote:
-          "It’s rare to feel held in a space. The Panchakarma here felt more like a rite of passage than a treatment.",
+          "It’s rare to feel held in a space. The Panchakarma here felt more like a rite of passage than a treatment. Every consultation feels like a journey inward. The herbs, the guidance, the lifestyle tweaks — it’s transformed my well-being completely. I’m so grateful for her wisdom and heart.",
         avatar: Logo,
       },
       {
@@ -73,13 +73,20 @@ const testimonials = [
           "Each visit felt like re-alignment — of body, mind, and spirit. It's not just a treatment center, it's a sanctuary.",
         avatar: Logo,
       },
+      {
+        name: "Tara Bhatt",
+        handle: "@bhatttara",
+        quote:
+          "Dr. Maya’s understanding of Ayurveda goes far beyond the textbook. Her treatments are tailored with such deep intuition and care. After years of chronic digestive issues, I finally feel balanced and energized again.Dr. Maya’s understanding of Ayurveda goes far beyond the textbook. Her treatments are tailored with such deep intuition and care. After years of chronic digestive issues, I finally feel balanced and energized again.Dr. Maya’s understanding of Ayurveda goes far beyond the textbook. Her treatments are tailored with such deep intuition and care. After years of chronic digestive issues, I finally feel balanced and energized again.",
+        avatar: Logo,
+      },
 ];
 
 const Testimonial = () => {
   return (
     <section className=" py-20 px-4">
         <div className='max-w-6xl mx-auto text-center mb-16 '>
-            <h1 className='text-5xl font-semibold text-emerald-900 mb-4 text-[#6B705C] italic'>Testimonial</h1>
+            <h1 className='text-6xl font-semibold text-emerald-900 mb-4 text-[#6B705C] italic'>Testimonial</h1>
             <h2 className="text-xl md:text-3xl font-bold text-gray-900 mt-2">
                 We have worked with<br />thousands of amazing people
             </h2>

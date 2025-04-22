@@ -5,6 +5,7 @@ import Image from 'next/image';
 import HTMLFlipBook from 'react-pageflip';
 import "../styles/bookFlip.css";
 import "../styles/globals.css";
+import DoshaBookMobile from './DoshaBookMobile';
 
 const pages = [
 
@@ -75,29 +76,28 @@ const pages = [
     return (
       <div
       ref={ref}
-      className="bg-[url('/assets/images/parchment-texture.jpg')] bg-cover bg-no-repeat bg-[#fefaf3]relative before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-[#fff5] before:to-transparent h-full px-6 sm:px-8 py-10 rounded-2xl shadow-2xl flex flex-col justify-center items-center text-center"
+      className="bg-[url('/assets/images/parchment-texture.jpg')] bg-cover bg-no-repeat bg-[#fefaf3]relative before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-[#fff5] before:to-transparent h-full px-6 sm:px-8 py-10 rounded-2xl shadow-2xl flex flex-col"
     >
-      <div className="w-full max-w-[90%] sm:max-w-[85%] md:max-w-[80%] lg:max-w-[75%] mx-auto">
+      <div className="w-full max-w-[85%] mx-auto flex flex-col items-center space-y-4 text-center">
         {title && (
-          <h2 className="text-2xl mt-10 md:text-3xl lg:text-4xl font-serif font-semibold italic text-[#5A6650] mb-6 drop-shadow-sm">
-          {title}
-        </h2>
+          <h2 className="text-xl md:text-2xl font-serif font-bold italic text-[#344439] leading-snug">
+            {title}
+          </h2>
         )}
-    
         {content && (
-          <p className="text-base sm:text-lg leading-relaxed text-[#3C3C3C]  tracking-wide font-bold ">
+          <p className="text-base md:text-lg text-[#1F1F1F] font-normal leading-relaxed tracking-wide">
             {content}
           </p>
         )}
     
         {image && (
-          <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 mt-6">
+          <div className="relative w-full h-56 sm:h-64 md:h-72 lg:h-80 mt-4 flex justify-center items-center">
             <Image
               src={image}
               alt={title || 'Dosha Image'}
               fill
-              className="object-contain rounded-xl mt-2  md:mt-5 lg:mt-10 xl:mt-10"
-              sizes="(max-width: 768px) 100vw, 800px"
+              className="object-contain rounded-xl"
+              sizes="(max-width: 768px) 90vw, (max-width: 1024px) 700px"
             />
           </div>
         )}
@@ -109,56 +109,61 @@ const pages = [
   });
   Page.displayName = 'Page';
 const DoshaBook = () => {
+  
+  const [dimensions, setDimensions] = useState({ width: 600, height: 700 });
+  const [isMobile, setIsMobile] = useState(false);
 
-  const [dimensions, setDimensions] = useState({ width: 300, height: 400 });
+useEffect(() => {
+  const updateSize = () => {
+    const screenIsMobile = window.innerWidth <= 768;
+    setIsMobile(screenIsMobile);
 
-    useEffect(() => {
-      const updateSize = () => {
-        const isMobile = window.innerWidth <= 768;
-        setDimensions({
-          width: isMobile ? 300 : 600,
-          height: isMobile ? 400 : 700,
-        });
-      };
-    
-      updateSize(); // call once on mount
-      window.addEventListener("resize", updateSize);
-    
-      return () => window.removeEventListener("resize", updateSize);
-    }, []);
+    const pageWidth = screenIsMobile ? window.innerWidth * 0.45 : 300;
+    const pageHeight = screenIsMobile ? window.innerHeight * 0.6 : 700;
+
+    setDimensions({
+      width: pageWidth * 2,
+      height: pageHeight,
+    });
+  };
+
+  updateSize(); // Run on mount
+  window.addEventListener('resize', updateSize);
+  return () => window.removeEventListener('resize', updateSize);
+}, []);
    
   
   return (
-    <div className="relative flex justify-center items-center py-12 book-v-shape">
-    {/* <div className="mx-auto max-w-full md:max-w-[90%] lg:max-w-[850px]"> */}
-
-      <HTMLFlipBook
-        width={600}
-        height={700}
-        size="stretch"
-        minWidth={300}
-        maxWidth={700}
-        minHeight={400}
-        maxHeight={1000}
-        drawShadow
-        flippingTime={1000}
-        useMouseEvents
-        className="shadow-2xl rounded-2xl tilted-book"
-        startPage={0}
-        usePortrait={false}
-        startZIndex={0}
-        autoSize
-        clickEventForward
-      >
-        {pages.map((page, index) => (
-          <Page key={index} title={page.title} content={page.content} image={page.image} />
-        ))}
-      </HTMLFlipBook>
-    {/* </div> */}
-    
-  </div>
+    <div className="relative w-full max-w-full overflow-x-hidden flex justify-center items-center py-10 px-2 book-v-shape">
+      {isMobile ? (
+        <DoshaBookMobile />
+      ) : (
+        <HTMLFlipBook
+          width={dimensions.width}
+          height={dimensions.height}
+          size="stretch"
+          minWidth={300}
+          maxWidth={700}
+          minHeight={400}
+          maxHeight={1000}
+          drawShadow
+          flippingTime={1000}
+          useMouseEvents
+          className="shadow-2xl rounded-2xl tilted-book"
+          startPage={0}
+          usePortrait={false}
+          startZIndex={0}
+          autoSize
+          clickEventForward
+        >
+          {pages.map((page, index) => (
+            <Page key={index} title={page.title} content={page.content} image={page.image} />
+          ))}
+        </HTMLFlipBook>
+      )}
+    </div>
+  );
   
-  )
 }
 
 export default DoshaBook

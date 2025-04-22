@@ -7,7 +7,7 @@ import Link from "next/link";
 
 // Timeline journey
 const timeline = [
-  { year: "Graduated BMS", detail: "Formal academic grounding in Ayurvedic medicine commenced." },
+  { year: "Graduated BAMS", detail: "Formal academic grounding in Ayurvedic medicine commenced." },
   { year: "Joined NHS", detail: "HCPC-registered Biomedical Scientist within London’s Stem Cell Laboratory." },
   { year: "Clinic Established", detail: "Founded a dedicated Ayurvedic clinic — where diagnostics meet tradition." },
   { year: "100,000+ Treated", detail: "Four decades of compassionate care, guided by trust and results." },
@@ -120,21 +120,37 @@ const About = () => {
       </div>
 
       {/* Timeline */}
-      <div className="max-w-4xl mx-auto relative border-l-4 border-emerald-200 pl-6 space-y-16">
-        {timeline.map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: i * 0.2 }}
-            className="relative"
-          >
-            <div className="absolute -left-[34px] w-6 h-6 bg-emerald-400 rounded-full shadow-md border-4 border-white"></div>
-            <h3 className="text-lg font-semibold text-[#6B705C]">{item.year}</h3>
-            <p className="text-gray-600 text-sm mt-1">{item.detail}</p>
-          </motion.div>
-        ))}
+      <div className="bg-[#EDF3EC] py-16">
+        <div className="relative max-w-6xl mx-auto">
+          {/* Center vertical line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-emerald-600"></div>
+
+          <div className="space-y-16">
+            {timeline.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.2 }}
+                className={`w-full flex ${i % 2 === 0 ? 'justify-start' : 'justify-end'}`}
+              >
+                <div className="w-1/2 px-4 relative">
+                  {/* Circle marker */}
+                  <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-emerald-600 rounded-full border-4 border-white shadow-md z-10"></div>
+                  
+                  <div className="bg-white rounded-xl shadow-md p-4">
+                    <h3 className="text-lg font-semibold text-[#6B705C]">{item.year}</h3>
+                    <p className="text-gray-600 text-sm mt-1">{item.detail}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
+
+
+
 
       {/* Certifications */}
       <div className="mt-20 grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-xl mx-auto items-center">
@@ -144,7 +160,7 @@ const About = () => {
             whileHover={{ scale: 1.05 }}
             className="flex justify-center"
           >
-            <Image src={src} alt="cert" width={80} height={80} className="object-contain" />
+            <Image src={src} alt="cert" width={110} height={110} className="object-contain" />
           </motion.div>
         ))}
       </div>

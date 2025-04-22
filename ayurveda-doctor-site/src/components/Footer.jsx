@@ -32,18 +32,17 @@ const Footer = () => {
           <h3 className="text-md font-semibold mb-2">Get in Touch</h3>
           <ul className="space-y-2 text-sm">
             <li className="flex items-center gap-2"><Phone size={16} /> +91 6354388393</li>
-            <li className="flex items-center gap-2"><Mail size={16} /> drmaya@example.com</li>
+            <li className="flex items-center gap-2"><Mail size={16} /> mayasyurveda@gmail.com</li>
             <li className="flex items-center gap-2">
               <Facebook size={16} className="text-[#3B5998]" />
               <Instagram size={16} className="text-[#E1306C]" />
-              <Facebook size={16} className="text-[#3B5998]" />
             </li>
           </ul>
         </div>
       </div>
 
       <div className="mt-8 text-center text-xs text-[#888]">
-        © {new Date().getFullYear()} Dr. Maya Ayurveda. All rights reserved.
+        © {new Date().getFullYear()} Maya's Ayurveda. All rights reserved.
       </div>
     </footer>
       

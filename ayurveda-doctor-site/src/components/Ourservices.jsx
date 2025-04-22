@@ -120,12 +120,12 @@ const Ourservices = () => {
   const [selected, setSelected] = useState(null);
 
   return (
-    <section className="w-full bg-[#f9f7f3] py-20 px-6 mt-24">
+    <section className="w-full bg-[#f9f7f3] py-20 px-6 mt-10">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-[#6B705C] italic mb-4">
           Explore Our Ayurvedic Services
         </h2>
-        <span className="text-sm text-gray-500 tracking-wide block mb-12">
+        <span className="text-md text-gray-500 tracking-wide block mb-12">
           Empowering wellness through ancient wisdom and personalised care.
         </span>
 
@@ -147,7 +147,7 @@ const Ourservices = () => {
               <h3 className="text-lg font-semibold text-[#6B705C] mb-2">
                 {service.title}
               </h3>
-              <p className="text-gray-600 text-sm line-clamp-3">
+              <p className="text-gray-600 text-md line-clamp-3">
                 {service.description}
               </p>
             </motion.div>

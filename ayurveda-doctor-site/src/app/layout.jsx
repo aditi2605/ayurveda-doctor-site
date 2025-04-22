@@ -1,8 +1,8 @@
-// layout.jsx
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
-import NavBar from "../components/NavBar.jsx";
-import Footer from "../components/Footer.jsx";
+import ClientLayout from "./ClientLayout";
+
 
 // Init fonts
 const geistSans = Geist({
@@ -16,17 +16,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: 'Ayurveda Wellness',
-  description: 'Holistic healing with Ayurveda',
+  title: "Maya's Ayurveda",
+  description: "A Journey of over 30 Year's of Ayurveda",
+  openGraph: {
+    images: ['/logo.png'], 
+  },
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
-      <body className="">
-        <NavBar />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

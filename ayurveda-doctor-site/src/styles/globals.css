@@ -32,6 +32,17 @@
   }
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  background: var(--background);
+  color: var(--foreground);
+  font-family:  'Lora', serif;
+} 
+
+
 .bg-background {
   background-color: var(--background);
 }
@@ -52,24 +63,26 @@
   border: 1px solid var(--border-color);
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-/* 
-.tilted-book {
-  transform: rotateX(5deg) rotateY(-5deg);
-  transform-style: preserve-3d;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease-in-out;
-} */
 
-/* .tilted-book {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-} */
+/* hero section */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 10px rgba(112, 191, 147, 0.3), 0 0 20px rgba(112, 191, 147, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(112, 191, 147, 0.5), 0 0 40px rgba(112, 191, 147, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(112, 191, 147, 0.3), 0 0 20px rgba(112, 191, 147, 0.2);
+  }
+}
+
+.chakra-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+  border-radius: 50%;
+}
+
+/* dosha book */
 
 .book-v-shape {
   perspective: 1900px; /* depth of field */
