@@ -6,12 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Timeline journey
-const timeline = [
-  { year: "Graduated BAMS", detail: "Formal academic grounding in Ayurvedic medicine commenced." },
-  { year: "Joined NHS", detail: "HCPC-registered Biomedical Scientist within London’s Stem Cell Laboratory." },
-  { year: "Clinic Established", detail: "Founded a dedicated Ayurvedic clinic — where diagnostics meet tradition." },
-  { year: "100,000+ Treated", detail: "Four decades of compassionate care, guided by trust and results." },
-];
+// const timeline = [
+//   { year: "Graduated BAMS", detail: "Formal academic grounding in Ayurvedic medicine commenced." },
+//   { year: "Joined NHS", detail: "HCPC-registered Biomedical Scientist within London’s Stem Cell Laboratory." },
+//   { year: "Clinic Established", detail: "Founded a dedicated Ayurvedic clinic — where diagnostics meet tradition." },
+//   { year: "30,000+ Results", detail: "Four decades of compassionate care, guided by trust and results." },
+// ];
 
 // Core philosophy
 const values = [
@@ -52,10 +52,70 @@ const useCounter = (targetNumber, duration = 2000) => {
   return count;
 };
 
+const sections = [
+  {
+    title: "परंपरा की विरासत",
+    subtitle: "Legacy of Rajvaidhyas",
+    quote: "\"जहाँ परंपरा और सेवा एक होती है, वहाँ आरोग्य जन्म लेता है।\"",
+    content:
+      "My grandfather and father served as royal physicians — Rajvaidhyas — in the court of the king. Watching my father heal with dedication inspired my desire to follow in his footsteps and dedicate my life to the science of Ayurveda.",
+    image: "/assets/images/Traditional Indian healer painting.jpg",
+  },
+  {
+    title: "आरोग्य शिक्षा",
+    subtitle: "Formal Education in Ayurveda",
+    quote: "\"शिक्षा आरोग्य की आधारशिला है।\"",
+    content:
+      "In 1960, I graduated with a Bachelor’s degree in Ayurvedic Medical Sciences. Soon after, I completed a two-year internship, gaining hands-on experience in classical diagnostic and treatment practices.",
+    image: "/assets/images/Sanskrit student with books.jpg",
+  },
+  {
+    title: "स्वर्ण प्रसाद की खोज",
+    subtitle: "Invention of Suvarna Prashan",
+    quote: "\"बाल आरोग्य का अमृत।\"",
+    content:
+      "With a deep concern for child immunity, I developed a unique formulation called Suvarna Prashan — a rejuvenating Ayurvedic preparation made of purified gold (suvarna bhasma), ghee, honey, and select herbs. It boosts memory, digestion, immunity, and overall well-being in children.",
+    image: "/assets/images/GoldashAyurveda.png",
+  },
+  {
+    title: "प्रथम चिकित्सालय",
+    subtitle: "The Healing Hut",
+    quote: "\"करुणा ही सच्ची औषधि है।\"",
+    content:
+      "After my internship, I opened my own Ayurvedic clinic — a humble space devoted to healing. For two decades, I served my community through natural treatments rooted in traditional wisdom.",
+    image: "/assets/images/Traditional Ayurvedic treatment room.jpg",
+  },
+  {
+    title: "वैश्विक चिकित्सा यात्रा",
+    subtitle: "New Horizons in the UK",
+    quote: "\"ज्ञान सीमाओं से परे है।\"",
+    content:
+      "Seeking to expand my perspective, I moved to the UK. Alongside continuing my Ayurveda practice, I worked as a Biomedical Scientist in the NHS, specifically in the Stem Cell Laboratory. This 15-year journey deepened my understanding of human biology and complemented my Ayurvedic roots.",
+    image: "/assets/images/Biomedical scientist in lab.jpg",
+  },
+  {
+    title: "सेवा का पुनारारंभ",
+    subtitle: "Return to My Roots",
+    quote: "\"तीन दशकों का ज्ञान अब फिर सेवा में।\"",
+    content:
+      "Today, I have returned to my homeland — to once again serve my community. With over 30 years of experience across Ayurveda and biomedical science, I offer a unique, natural path to healing, transformation, and holistic well-being.",
+    image: "/assets/images/backtoroots.jpg",
+  }
+];
 const About = () => {
-  const years = useCounter(40, 3000);
-  const patients = useCounter(100000, 3500);
-  const nhsYears = useCounter(5, 3000);
+  const years = useCounter(30, 3000);
+  const patients = useCounter(30000, 3000);
+  const nhsYears = useCounter(15, 3000);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % sections.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + sections.length) % sections.length);
+  };
 
   return (
     <section className="w-full bg-[#f9f7f3] py-16 px-4 sm:px-6 lg:px-12 mt-24">
@@ -75,7 +135,7 @@ const About = () => {
           transition={{ delay: 0.3 }}
           className="mt-4 text-lg text-gray-600"
         >
-          Bridging over 40 decades of Ayurvedic mastery with biomedical precision to restore well-being in over 100,000 lives.
+          Bridging over 3 decades of Ayurvedic mastery with biomedical precision to restore well-being in over 30,000 lives.
         </motion.p>
       </div>
 
@@ -120,37 +180,65 @@ const About = () => {
       </div>
 
       {/* Timeline */}
-      <div className="bg-[#EDF3EC] py-16">
-        <div className="relative max-w-6xl mx-auto">
-          {/* Center vertical line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-emerald-600"></div>
+<div className="text-center py-20 bg-[#E9E7DC]">
+  {/* Heading */}
+  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 ">
+    A Healer’s Journey Through Time
+  </h2>
+  <p className="mt-2 font-md text-gray-600 max-w-xl mx-auto">
+    Each phase of my journey reflects the merging of tradition, wisdom, and personal evolution — guided by the principles of Ayurveda.
+  </p>
 
-          <div className="space-y-16">
-            {timeline.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.2 }}
-                className={`w-full flex ${i % 2 === 0 ? 'justify-start' : 'justify-end'}`}
-              >
-                <div className="w-1/2 px-4 relative">
-                  {/* Circle marker */}
-                  <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-emerald-600 rounded-full border-4 border-white shadow-md z-10"></div>
-                  
-                  <div className="bg-white rounded-xl shadow-md p-4">
-                    <h3 className="text-lg font-semibold text-[#6B705C]">{item.year}</h3>
-                    <p className="text-gray-600 text-sm mt-1">{item.detail}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
+  {/* Timeline Content */}
+  <div className="relative w-full max-w-4xl mx-auto mt-16 text-[#3a3a3a] font-serif">
+    <motion.div
+      key={currentIndex}
+      initial={{ x: 300, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: -300, opacity: 0 }}
+      transition={{ duration: 0.6 }}
+      className="flex flex-col items-center justify-center text-center"
+    >
+      <Image
+        src={sections[currentIndex].image}
+        alt={sections[currentIndex].title}
+        width={100}
+        height={100}
+        className="mb-6 opacity-90"
+      />
+      <h3 className="text-2xl md:text-4xl font-bold text-amber-800 tracking-wide">
+        {sections[currentIndex].title}
+      </h3>
+      <p className="text-lg md:text-xl italic mt-2 text-[#7b4f21]">
+        {sections[currentIndex].subtitle}
+      </p>
+      <blockquote className="mt-4 italic text-md md:text-lg text-[#444] max-w-xl">
+        {sections[currentIndex].quote}
+      </blockquote>
+      <p className="mt-4 max-w-2xl text-md md:text-lg leading-relaxed">
+        {sections[currentIndex].content}
+      </p>
+    </motion.div>
 
+    {/* Navigation Arrows */}
+    <div className="flex justify-between mt-10">
+      <button
+        onClick={prevSlide}
+        className="text-2xl text-[#6B705C] hover:text-amber-700"
+      >
+        ◀
+      </button>
+      <button
+        onClick={nextSlide}
+        className="text-2xl text-[#6B705C] hover:text-amber-700"
+      >
+        ▶
+      </button>
+    </div>
+  </div>
+</div>
 
-
+     
 
       {/* Certifications */}
       <div className="mt-20 grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-xl mx-auto items-center">

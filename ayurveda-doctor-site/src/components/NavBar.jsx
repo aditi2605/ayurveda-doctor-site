@@ -10,19 +10,19 @@ const menuItems = ["Home", "About", "Services", "Contact"];
 const icons = [<Home size={16} />, <User size={16} />, <Leaf size={16} />, <Mail size={16} />];
 
 export const NavBar = () => {
-  const [visible, setVisible] = useState(false);
+  // const [visible, setVisible] = useState(true);
   const [activeIndex, setActiveIndex] = useState(null);
   const router = useRouter();
   const pathname = usePathname();
 
   // Handle scroll to show/hide menu
-  useEffect(() => {
-    const handleScroll = () => {
-      setVisible(window.scrollY > 100);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setVisible(window.scrollY > 100);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   // Highlight active route
   useEffect(() => {
@@ -37,10 +37,7 @@ export const NavBar = () => {
 
   return (
     <div
-      className={`fixed bottom-6 right-4 z-50 transition-all duration-500 ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
-      }`}
-    >
+      className="fixed bottom-6 right-4 z-50 transition-all duration-500 opacity-100 translate-y-0">
       <div className="bg-[#6B705C] text-white shadow-xl rounded-full px-4 py-2 flex items-center gap-3 text-sm md:text-base">
         {menuItems.map((item, index) => (
           <button

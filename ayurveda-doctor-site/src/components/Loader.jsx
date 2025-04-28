@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Lottie from 'lottie-react';
-import loaderAnimation from '../../public/assets/lottie/Animation - 3.json'; 
+import loaderAnimation from '../../public/assets/lottie/Animation -2.json'; 
 
 const Loader = () => {
   return (

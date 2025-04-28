@@ -23,13 +23,13 @@ const Contact = () => {
         {/* Why Contact Section */}
         <ul className="text-center text-gray-600 mb-8 space-y-1 text-sm">
           <li>✔ Confidential Ayurvedic Consultations</li>
-          <li>✔ 40+ Years of Healing Expertise</li>
+          <li>✔ 30+ Years of Healing Expertise</li>
           <li>✔ Personalised, Holistic Wellness</li>
         </ul>
 
         <form
-          action="https://formsubmit.co/98756c2497c346b95199f2499d2df48e"
-          method="POST"
+          action=""
+          method=""
           className="space-y-6"
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -111,7 +111,7 @@ const Contact = () => {
         {/* Map */}
         <div className="w-full h-72 rounded-xl overflow-hidden shadow-md mt-12">
           <iframe
-            src="https://www.google.com/maps/place/Regenta+Fairlark/@22.2524719,73.0628211,12706m/data=!3m1!1e3!4m25!1m15!4m14!1m6!1m2!1s0x395f968d1ff1dfe7:0xb6e2885830556c0!2sVasna,+Vadodara,+Gujarat,+India!2m2!1d72.9755829!2d22.0401895!1m6!1m2!1s0x395fc758c06d63b3:0xce2aebc4e1366913!2sRegenta+Fairlark,+Darshanam+Capital,+Canal+Ring+road,+Vasna+-+Bhayli+Main+Rd,+opposite+Essar+petrol+pump,+near+waves+club,+Bhayli,+Vadodara,+Gujarat+391410,+India!2m2!1d73.1321723!2d22.2884279!3m8!1s0x395fc758c06d63b3:0xce2aebc4e1366913!5m2!4m1!1i2!8m2!3d22.2884279!4d73.1321723!16s%2Fg%2F11t863jr35?entry=ttu&g_ep=EgoyMDI1MDQxNC4xIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D" // Replace with your real embed link
+            src=""
             width="100%"
             height="100%"
             style={{ border: 0 }}

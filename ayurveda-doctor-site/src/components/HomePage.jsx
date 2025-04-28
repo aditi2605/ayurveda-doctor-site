@@ -57,7 +57,7 @@ const HomePage = () => {
               Maya&apos;s Ayurveda
             </h1>
             <h3 className="text-xl md:text-2xl mt-4 font-body text-gray-700">
-              A Journey of over 30 Year's of <span className="italic text-[#6B705C]">Ayurveda.</span>
+              A Journey of over 30 Year's in <span className="italic text-[#6B705C]">Ayurveda.</span>
             </h3>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -99,11 +99,11 @@ const HomePage = () => {
             {/* Text Section */}
             <div className="w-full md:w-1/2">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                40 years of dedicated Ayurvedic practice
+                30 years of dedicated Ayurvedic practice
               </h2>
               <span className='text-md font-style:italic text-gray-500'>“Ayurvedic care that is gentle, grounded, and deeply rooted in nature’s rhythm—for those seeking not just healing, but a return to self.”</span>
               <p className="text-gray-700 text-lg leading-relaxed mt-4 mb-4">
-                With over 40 years of dedicated Ayurvedic practice, Dr. Maya has helped thousands of patients across four decades with personalized Ayurvedic care rooted in time-honored principles. Her approach blends deep listening, natural treatments, and sustainable healing.
+                With over 30 years of dedicated Ayurvedic practice, Dr. Maya has helped thousands of patients across four decades with personalized Ayurvedic care rooted in time-honored principles. Her approach blends deep listening, natural treatments, and sustainable healing.
               </p>
               {/* <p className="text-gray-700 text-md">
                 With reverence for ancient tradition and compassion at our core, we offer an oasis of calm in a hurried world.
