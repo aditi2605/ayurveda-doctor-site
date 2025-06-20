@@ -95,56 +95,54 @@ const HomePage = () => {
 
 
         {/* About us Intro */}
-        <section id="abt-intro-section" className="relative bg-[#EAE7DC] text-[#3E3E3E] w-full py-20 px-6 md:px-10">
-          <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
-            
-            {/* Text Section */}
-            <div className="w-full md:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                35 Years of Dedicated Ayurvedic Practice
-              </h2>
-
-              <p className="text-md italic text-gray-600 mb-6">
-                “Ayurvedic care that is gentle, grounded, and deeply rooted in nature’s rhythm—for those seeking not just healing, but a return to self.”
-              </p>
-
-              <div className="text-gray-700 text-lg leading-relaxed space-y-4">
-                <p>
-                  Dr. Maya Parikh is a qualified Ayurvedic Practitioner (B.A.M.S.) and an HCPC-registered Biomedical Scientist in the United Kingdom, offering a distinctive integration of classical Ayurvedic wisdom with modern biomedical expertise.
-                </p>
-                <p>
-                  With over 35 years of clinical experience and knowledge inherited across two generations, Dr Parikh has supported the health and wellbeing of thousands of patients through tailored Ayurvedic care, grounded in time-honoured principles.
-                </p>
-                <p>
-                  She has conducted successful consultations in both India and the UK for over two decades, while also serving as a Senior Biomedical Scientist in leading NHS hospitals—bringing scientific rigour and holistic insight together.
-                </p>
-                <p>
-                  Your consultation begins with an in-depth discussion of your lifestyle, diet, and health concerns, followed by a clinical assessment. A personalised Ayurvedic plan is then crafted to restore balance, improve vitality, and support long-term healing.
-                </p>
-                <p>
-                  Book your consultation today and take the first step towards holistic wellness.
-                </p>
-              </div>
-
-              <button 
-                onClick={() => router.push("/about")}
-                className="mt-8 bg-[#6B705C] text-white font-medium px-6 py-3 rounded-full shadow-md hover:bg-[#5a604f] transition">
-                Learn More About Us
-              </button>
-            </div>
-
-            {/* Image Section */}
-            <div className="w-full md:w-1/2">
-              <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-lg">
-                <img
-                  src="/assets/images/Dr_Profile_img_2.jpeg"
-                  alt="Healing hands with herbs"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
+       <section id="abt-intro-section" className="relative bg-[#EAE7DC] text-[#3E3E3E] w-full py-20 px-6 md:px-10">
+        <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
+          
+          {/* Image */}
+          <div className="mb-8">
+            <img
+              src="/assets/images/Dr_Profile_img.jpeg"
+              alt="Dr. Maya Parikh"
+              className="w-40 h-40 rounded-full object-cover border-4 border-[#6B705C] shadow-lg"
+            />
           </div>
-        </section>
+
+          {/* Text Content */}
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            35 Years of Dedicated Ayurvedic Practice
+          </h2>
+
+          <p className="text-lg italic text-[#6B705C] mb-6">
+            “Ayurvedic care that is gentle, grounded, and deeply rooted in nature’s rhythm—for those seeking not just healing, but a return to self.”
+          </p>
+
+          <div className="text-gray-700 text-base md:text-lg leading-relaxed space-y-5 text-left">
+            <p>
+              Dr. Maya Parikh is a qualified Ayurvedic Practitioner (B.A.M.S.) and an HCPC-registered Biomedical Scientist in the UK, blending Ayurvedic wisdom with modern biomedical science.
+            </p>
+            <p>
+              With over 35 years of experience and knowledge passed down through generations, she has supported thousands of patients with personalised, time-honoured care.
+            </p>
+            <p>
+              Her practice spans both India and the UK, along with her role as a Senior Biomedical Scientist in leading NHS hospitals—uniting science with holistic insight.
+            </p>
+            <p>
+              Consultations explore your lifestyle, diet, and health concerns, followed by a tailored Ayurvedic plan to restore balance and long-term wellness.
+            </p>
+            <p>
+              Book your consultation today and begin your journey toward holistic healing.
+            </p>
+          </div>
+
+          <button 
+            onClick={() => router.push("/about")}
+            className="mt-10 bg-[#6B705C] text-white font-medium px-6 py-3 rounded-full shadow-md hover:bg-[#5a604f] transition">
+            Learn More About Us
+          </button>
+        </div>
+       </section>
+
+
 
 
         {/* DoshaBook section*/ }

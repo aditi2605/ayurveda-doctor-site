@@ -147,7 +147,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
         >
           <Image
-            src="/assets/images/Dr_Profile_img_3.jpeg"
+            src="/assets/images/Dr_Profile_img.jpeg"
             alt="Dr. Ayurvedic Practitioner"
             width={140}
             height={140}
