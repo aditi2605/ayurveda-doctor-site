@@ -66,15 +66,15 @@ const sections = [
     subtitle: "Formal Education in Ayurveda",
     quote: "\"शिक्षा आरोग्य की आधारशिला है।\"",
     content:
-      "In 1960, I graduated with a Bachelor’s degree in Ayurvedic Medical Sciences. Soon after, I completed a two-year internship, gaining hands-on experience in classical diagnostic and treatment practices.",
+      "In 1990, I graduated with a Bachelor’s degree in Ayurvedic Medical Sciences (B.A.M.S.) a qualified Ayurvedic Practitioner. Soon after, I completed a two-year internship, gaining hands-on experience in classical diagnostic and treatment practices.",
     image: "/assets/images/Sanskrit student with books.jpg",
   },
   {
-    title: "स्वर्ण प्रसाद की खोज",
-    subtitle: "Invention of Suvarna Prashan",
-    quote: "\"बाल आरोग्य का अमृत।\"",
+    title: "Suvarna Prashan Awareness",
+    subtitle: "Reviving an Ancient Ayurvedic Practice",
+    quote: "\"The golden elixir for childhood well-being.\"",
     content:
-      "With a deep concern for child immunity, I developed a unique formulation called Suvarna Prashan — a rejuvenating Ayurvedic preparation made of purified gold (suvarna bhasma), ghee, honey, and select herbs. It boosts memory, digestion, immunity, and overall well-being in children.",
+      "Rooted in ancient Ayurvedic wisdom, Suvarna Prashan is a traditional formulation prepared with purified gold (suvarna bhasma), ghee, honey, and select herbs. Recognising its timeless value for children's health, I have worked extensively to promote its awareness through community campaigns and educational workshops. Over the years, this initiative has supported the well-being of more than 25,000 children — enhancing their immunity, memory, and vitality through this sacred Ayurvedic practice.",
     image: "/assets/images/GoldashAyurveda.png",
   },
   {
@@ -90,7 +90,7 @@ const sections = [
     subtitle: "New Horizons in the UK",
     quote: "\"ज्ञान सीमाओं से परे है।\"",
     content:
-      "Seeking to expand my perspective, I moved to the UK. Alongside continuing my Ayurveda practice, I worked as a Biomedical Scientist in the NHS, specifically in the Stem Cell Laboratory. This 15-year journey deepened my understanding of human biology and complemented my Ayurvedic roots.",
+      "Seeking to expand my perspective, I moved to the UK. Alongside continuing my Ayurveda practice, I worked as a Biomedical Scientist in Haematology, Genetic and Sickle cells lab  in the NHS, specifically in the Stem Cell Laboratory and ATMP tranplant research Lab. This 15-year journey deepened my understanding of human biology and complemented my Ayurvedic roots.",
     image: "/assets/images/Biomedical scientist in lab.jpg",
   },
   {
@@ -103,8 +103,8 @@ const sections = [
   }
 ];
 const About = () => {
-  const years = useCounter(30, 3000);
-  const patients = useCounter(30000, 3000);
+  const years = useCounter(35, 3000);
+  const patients = useCounter(45000, 3000);
   const nhsYears = useCounter(15, 3000);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -135,7 +135,7 @@ const About = () => {
           transition={{ delay: 0.3 }}
           className="mt-4 text-lg text-gray-600"
         >
-          Bridging over 3 decades of Ayurvedic mastery with biomedical precision to restore well-being in over 30,000 lives.
+          Bridging over 3 decades of Ayurvedic mastery with biomedical precision to restore well-being in over 45,000 lives.
         </motion.p>
       </div>
 
@@ -147,7 +147,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
         >
           <Image
-            src="/assets/images/Dr_Profile_img.jpeg"
+            src="/assets/images/Dr_Profile_img_3.jpeg"
             alt="Dr. Ayurvedic Practitioner"
             width={140}
             height={140}
@@ -267,15 +267,15 @@ const About = () => {
       {/* Animated Counters */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center max-w-4xl mx-auto mt-20">
         <div>
-          <p className="text-4xl font-bold text-emerald-700">{years}+</p>
+          <p className="text-4xl font-bold text-[#6B705C]">{years}+</p>
           <p className="text-gray-600">Years in Practice</p>
         </div>
         <div>
-          <p className="text-4xl font-bold text-emerald-700">{patients.toLocaleString()}+</p>
+          <p className="text-4xl font-bold text-[#6B705C]">{patients.toLocaleString()}+</p>
           <p className="text-gray-600">Patients Treated</p>
         </div>
         <div>
-          <p className="text-4xl font-bold text-emerald-700">{nhsYears}+</p>
+          <p className="text-4xl font-bold text-[#6B705C]">{nhsYears}+</p>
           <p className="text-gray-600">Years in NHS London</p>
         </div>
       </div>
@@ -290,7 +290,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: 20 }}
               transition={{ delay: i * 0.2 }}
-              className="text-md font-medium text-gray-700 border-l-4 border-emerald-300 pl-4"
+              className="text-md font-medium text-gray-700 border-l-4 border-[#6B705C] pl-4"
             >
               {val}
             </motion.div>
@@ -305,9 +305,9 @@ const About = () => {
         </p>
         <Link
           href="/contact"
-          className="inline-block bg-emerald-600 text-white px-6 py-3 rounded-full hover:bg-emerald-700 transition"
+          className="inline-block mt-6 bg-[#6B705C] text-white font-medium px-6 py-3 rounded-full shadow-md hover:bg-[#5a604f] transition"
         >
-           Book a Private Consultation
+           Book a Consultation
         </Link>
       </div>
     </section>

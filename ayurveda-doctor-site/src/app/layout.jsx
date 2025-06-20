@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Maya's Ayurveda",
-  description: "A Journey of over 30 Year's of Ayurveda",
+  description: "Maya's Ayurveda offers authentic Ayurvedic therapies including Nasya, Sirodhara, Basti, and personalized herbal treatments for holistic healing and balance.",
   openGraph: {
     images: ['/logo.png'], 
   },

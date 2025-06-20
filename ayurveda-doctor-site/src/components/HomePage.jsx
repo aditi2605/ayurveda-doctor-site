@@ -41,9 +41,9 @@ const HomePage = () => {
       <main className="w-full min-h-screen text-[#2C2C2C] flex flex-col items-center justify-start">
         {/* Hero Section */}
         <section
-          className="relative w-full h-screen flex items-center justify-center bg-[url('/assets/images/bg_img_mayasayurveda.png')] bg-cover bg-center bg-no-repeat"
+          className="relative w-full h-screen flex items-center justify-center bg-[url('/assets/images/mandala_text_even_darker.png')] bg-cover bg-center bg-no-repeat"
         >
-          {/* Overlay (optional for better text contrast) */}
+          {/* Overlay*/}
           <div className="absolute inset-0 bg-[#fef9ee]/30 z-0"></div>
 
           {/* Hero Content */}
@@ -53,11 +53,12 @@ const HomePage = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: 'easeOut' }}
           >
-            <h1 className="text-5xl md:text-6xl font-heading font-bold text-gray-900 leading-tight">
+            {/* <span className="text-md md:text-lg mt-4 font-body text-gray-700"> Over 35 years of healing experience through authentic Ayurvedic principle,<br /> <span className="italic text-[#6B705C-700 text-lg font-bold">Now in your hometown.</span> </span> */}
+            <h1 className="text-5xl md:text-8xl font-heading font-bold text-gray-900 leading-tight">
               Maya&apos;s Ayurveda
             </h1>
             <h3 className="text-xl md:text-2xl mt-4 font-body text-gray-700">
-              A Journey of over 30 Year's in <span className="italic text-[#6B705C]">Ayurveda.</span>
+              Creating A Disease Free Family Through <span className="italic text-[#6B705C-700 text-2xl font-bold">Ayurveda.</span>
             </h3>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -94,24 +95,40 @@ const HomePage = () => {
 
 
         {/* About us Intro */}
-        <section id="abt-intro-section" className=" relative bg-[#e4e7d6] w-full py-50 px-10">
+        <section id="abt-intro-section" className="relative bg-[#EAE7DC] text-[#3E3E3E] w-full py-20 px-6 md:px-10">
           <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
+            
             {/* Text Section */}
             <div className="w-full md:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                30 years of dedicated Ayurvedic practice
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                35 Years of Dedicated Ayurvedic Practice
               </h2>
-              <span className='text-md font-style:italic text-gray-500'>“Ayurvedic care that is gentle, grounded, and deeply rooted in nature’s rhythm—for those seeking not just healing, but a return to self.”</span>
-              <p className="text-gray-700 text-lg leading-relaxed mt-4 mb-4">
-                With over 30 years of dedicated Ayurvedic practice, Dr. Maya has helped thousands of patients across four decades with personalized Ayurvedic care rooted in time-honored principles. Her approach blends deep listening, natural treatments, and sustainable healing.
+
+              <p className="text-md italic text-gray-600 mb-6">
+                “Ayurvedic care that is gentle, grounded, and deeply rooted in nature’s rhythm—for those seeking not just healing, but a return to self.”
               </p>
-              {/* <p className="text-gray-700 text-md">
-                With reverence for ancient tradition and compassion at our core, we offer an oasis of calm in a hurried world.
-                Whether you seek clarity, vitality, or stillness, our space is yours to come home to.
-              </p> */}
+
+              <div className="text-gray-700 text-lg leading-relaxed space-y-4">
+                <p>
+                  Dr. Maya Parikh is a qualified Ayurvedic Practitioner (B.A.M.S.) and an HCPC-registered Biomedical Scientist in the United Kingdom, offering a distinctive integration of classical Ayurvedic wisdom with modern biomedical expertise.
+                </p>
+                <p>
+                  With over 35 years of clinical experience and knowledge inherited across two generations, Dr Parikh has supported the health and wellbeing of thousands of patients through tailored Ayurvedic care, grounded in time-honoured principles.
+                </p>
+                <p>
+                  She has conducted successful consultations in both India and the UK for over two decades, while also serving as a Senior Biomedical Scientist in leading NHS hospitals—bringing scientific rigour and holistic insight together.
+                </p>
+                <p>
+                  Your consultation begins with an in-depth discussion of your lifestyle, diet, and health concerns, followed by a clinical assessment. A personalised Ayurvedic plan is then crafted to restore balance, improve vitality, and support long-term healing.
+                </p>
+                <p>
+                  Book your consultation today and take the first step towards holistic wellness.
+                </p>
+              </div>
+
               <button 
                 onClick={() => router.push("/about")}
-                className="mt-6 bg-[#6B705C] text-white font-medium px-6 py-3 rounded-full shadow-md hover:bg-[#5a604f] transition">
+                className="mt-8 bg-[#6B705C] text-white font-medium px-6 py-3 rounded-full shadow-md hover:bg-[#5a604f] transition">
                 Learn More About Us
               </button>
             </div>
@@ -120,7 +137,7 @@ const HomePage = () => {
             <div className="w-full md:w-1/2">
               <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-lg">
                 <img
-                  src="/assets/images/about-ayurveda.jpg"
+                  src="/assets/images/Dr_Profile_img_2.jpeg"
                   alt="Healing hands with herbs"
                   className="w-full h-full object-cover"
                 />
@@ -128,6 +145,7 @@ const HomePage = () => {
             </div>
           </div>
         </section>
+
 
         {/* DoshaBook section*/ }
         <section
@@ -138,7 +156,8 @@ const HomePage = () => {
             Discover the Ancient Wisdom of <span className="not-italic font-bold text-emerald-900">Ayurveda</span>
           </h1>
           <DoshaBook />
-        </section>  
+        </section> 
+      
 
         {/* Info Section */}
         {/* <section className='relative w-full min-h-[800px] flex items-center justify-center px-4 py-16 overflow-hidden bg-[#F0EAD6] mt-28'>

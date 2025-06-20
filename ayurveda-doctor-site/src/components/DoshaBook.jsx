@@ -47,9 +47,8 @@ const pages = [
     },
     {
       title: 'Vata',
-      content:
-        'Vata is air and space. Individuals with Vata are energetic and creative, but can be anxious or forgetful when imbalanced.',
-    },
+      content: 'Vata is air and space. Individuals with Vata are energetic and creative, but can be anxious or forgetful when imbalanced.',
+      },
     {
         image: '/assets/images/vata-dosha.jpg',
     },
@@ -80,12 +79,12 @@ const pages = [
     >
       <div className="w-full max-w-[85%] mx-auto flex flex-col items-center space-y-4 text-center">
         {title && (
-          <h2 className="text-xl md:text-2xl font-serif font-bold italic text-[#344439] leading-snug">
+          <h2 className="text-xl md:text-2xl font-serif font-bold italic text-emerald-900 leading-snug">
             {title}
           </h2>
         )}
         {content && (
-          <p className="text-base md:text-lg text-[#1F1F1F] font-normal leading-relaxed tracking-wide">
+          <p className="text-base md:text-lg text-black font-bold leading-relaxed tracking-wide">
             {content}
           </p>
         )}

@@ -5,79 +5,56 @@ import Logo from "../../public/assets/images/heroImg_2.png";
 const testimonials = [
     {
         name: "Aanya Kapoor",
-        handle: "@aanyak",
         quote:
           "I arrived tense and disconnected… I left feeling like I was floating. Their work balances the physical and energetic beautifully.",
         avatar: Logo,
       },
       {
-        name: "Michael Patel",
-        handle: "@mikepatel",
+        name: "Misha Patel",
         quote:
           "The herbal treatments were curated just for me — gentle, earthy, and surprisingly effective. I felt truly listened to.",
         avatar: Logo,
       },
       {
         name: "Sophie Tran",
-        handle: "@sophietranquil",
         quote:
           "It wasn’t just a cleanse — it was a reset. Physically lighter, mentally sharper, and spiritually aligned.",
         avatar: Logo,
       },
       {
         name: "Devika Nair",
-        handle: "@devina.nair",
         quote:
           "There was such sacred respect for my journey. The way they support women’s health is rooted in wisdom and care.",
         avatar: Logo,
       },
       {
-        name: "Elisa Romero",
-        handle: "@elisaromind",
-        quote:
-          "The space itself heals you. Every corner smells of flowers and herbs, and the silence feels intentional — like the earth is exhaling.",
-        avatar: Logo,
-      },
-      {
         name: "James Crawford",
-        handle: "@jcrawwellness",
         quote:
           "It’s rare to feel held in a space. The Panchakarma here felt more like a rite of passage than a treatment. Every consultation feels like a journey inward. The herbs, the guidance, the lifestyle tweaks — it’s transformed my well-being completely. I’m so grateful for her wisdom and heart.",
         avatar: Logo,
       },
       {
         name: "Tara Leone",
-        handle: "@taraheals",
         quote:
           "This wasn’t just bodywork — it was soul work. The care, the patience, the energy… it softened something deep inside me.",
         avatar: Logo,
       },
       {
-        name: "Raj Malhotra",
-        handle: "@raj.mindful",
-        quote:
-          "It’s like a temple of calm. Soft light, earthy textures, and the faint scent of sandalwood — it all creates a perfect healing cocoon.",
-        avatar: Logo,
-      },
-      {
         name: "Amira Sheikh",
-        handle: "@amirawellness",
         quote:
           "They took time to understand my constitution, my story. I’ve never felt so seen and supported in any healing space before.",
         avatar: Logo,
       },
       {
         name: "Lucas Bell",
-        handle: "@lucaszenflow",
         quote:
           "Each visit felt like re-alignment — of body, mind, and spirit. It's not just a treatment center, it's a sanctuary.",
         avatar: Logo,
       },
       {
         name: "Tara Bhatt",
-        handle: "@bhatttara",
         quote:
-          "Dr. Maya’s understanding of Ayurveda goes far beyond the textbook. Her treatments are tailored with such deep intuition and care. After years of chronic digestive issues, I finally feel balanced and energized again.Dr. Maya’s understanding of Ayurveda goes far beyond the textbook. Her treatments are tailored with such deep intuition and care. After years of chronic digestive issues, I finally feel balanced and energized again.Dr. Maya’s understanding of Ayurveda goes far beyond the textbook. Her treatments are tailored with such deep intuition and care. After years of chronic digestive issues, I finally feel balanced and energized again.",
+          "Dr. Maya’s understanding of Ayurveda goes far beyond the textbook. Her treatments are tailored with such deep intuition and care. After years of chronic digestive issues, I finally feel balanced and energized again.",
         avatar: Logo,
       },
 ];

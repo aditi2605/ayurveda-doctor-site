@@ -91,7 +91,7 @@ const DoshaBookMobile = () => {
           onClick={goNext}
         >
           {page.title && (
-            <h2 className="text-lg font-serif font-semibold italic text-[#5A6650]">
+            <h2 className="text-lg font-serif font-semibold italic text-emerald-900">
               {page.title}
             </h2>
           )}

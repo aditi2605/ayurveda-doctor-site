@@ -31,8 +31,8 @@ const Footer = () => {
         <div>
           <h3 className="text-md font-semibold mb-2">Get in Touch</h3>
           <ul className="space-y-2 text-sm">
-            <li className="flex items-center gap-2"><Phone size={16} /> +91 6354388393</li>
-            <li className="flex items-center gap-2"><Mail size={16} /> mayasyurveda@gmail.com</li>
+            <li className="flex items-center gap-2"><Phone size={16} /> +91 8780493489 </li>
+            <li className="flex items-center gap-2"><Mail size={16} /> mayasayurveda@outlook.com</li>
             <li className="flex items-center gap-2">
               <Facebook size={16} className="text-[#3B5998]" />
               <Instagram size={16} className="text-[#E1306C]" />
