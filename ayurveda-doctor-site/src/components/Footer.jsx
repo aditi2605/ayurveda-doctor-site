@@ -10,9 +10,9 @@ const Footer = () => {
         
         {/* Brand / About */}
         <div>
-          <h2 className="text-lg font-bold text-[#4B3425] mb-2">Dr. Maya Parikh</h2>
+          <h2 className="text-lg font-bold text-[#4B3425] mb-2">Maya's Ayurveda</h2>
           <p className="text-sm text-gray-600">
-            Specialist in women’s health, chronic conditions, and personalised holistic care.
+            Maya’s Ayurveda is a holistic wellness centre in Vadodara, Gujarat, offering authentic Ayurvedic therapies, personalised consultations, and natural treatments for women's health, joint pain, stress, and lifestyle imbalances. We specialise in treatments like Shirodhara, Janu Basti, Nasya, and hormone-balancing therapies. Our mission is to help you restore balance, vitality, and peace using time-tested Ayurvedic principles tailored for modern life.
           </p>
         </div>
 
@@ -32,7 +32,7 @@ const Footer = () => {
           <h3 className="text-md font-semibold mb-2">Get in Touch</h3>
           <ul className="space-y-2 text-sm">
             <li className="flex items-center gap-2"><Phone size={16} /> +91 8780493489 </li>
-            <li className="flex items-center gap-2"><Mail size={16} /> mayasayurveda@outlook.com</li>
+            <li className="flex items-center gap-2"><Mail size={16} /> drmayasayurveda@gmail.com</li>
             <li className="flex items-center gap-2">
               <Facebook size={16} className="text-[#3B5998]" />
               <Instagram size={16} className="text-[#E1306C]" />

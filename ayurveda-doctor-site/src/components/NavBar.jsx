@@ -36,23 +36,24 @@ export const NavBar = () => {
   };
 
   return (
-    <div
-      className="fixed bottom-6 right-4 z-50 transition-all duration-500 opacity-100 translate-y-0">
-      <div className="bg-[#6B705C] text-white shadow-xl rounded-full px-4 py-2 flex items-center gap-3 text-sm md:text-base">
+    <div className="fixed top-1/2 -translate-y-1/2 right-4 z-50">
+      <div className="bg-[#6B705C] rounded-full py-4 px-2 flex flex-col gap-4 items-center shadow-lg">
         {menuItems.map((item, index) => (
           <button
             key={item}
             onClick={() => handleClick(index)}
-            className={`relative flex items-center gap-1 hover:underline transition text-white ${
-              index === activeIndex ? "font-semibold" : "opacity-80"
+            className={`group relative flex items-center justify-center text-white transition hover:scale-110 ${
+              index === activeIndex ? "text-green-400" : "opacity-80"
             }`}
           >
-            {icons[index]}
-            <span>{item}</span>
+            <div className="p-2 rounded-full hover:bg-gray-700 transition">
+              {icons[index]}
+            </div>
 
-            {index === activeIndex && (
-              <span className="absolute -bottom-1 left-1/2 w-1.5 h-1.5 bg-white rounded-full transform -translate-x-1/2"></span>
-            )}
+            {/* Label shown on hover */}
+            <span className="absolute right-full ml-3 w-max bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+              {item}
+            </span>
           </button>
         ))}
       </div>

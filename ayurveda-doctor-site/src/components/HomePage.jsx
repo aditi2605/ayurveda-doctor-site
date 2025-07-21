@@ -28,6 +28,28 @@ const generatePositions = () => icons.map(() => ({
 const HomePage = () => {
 
   const router = useRouter();
+  const [showBanner, setShowBanner] = useState(false)
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false)
+
+  // cookie consent banner
+  useEffect(() => {
+    const consent = localStorage.getItem('cookieConsent');
+    if (!consent){
+      setShowBanner(true);
+    }
+  }, []);
+
+  const handleAccept = () => {
+    localStorage.setItem('cookieConsent', 'true');
+    setShowBanner(false);
+  };
+
+  const handleDecline = () => {
+    localStorage.setItem('cookieConsent', "declined");
+    setShowBanner(false);
+  }
+
+
   const [positions, setPositions] = useState(
     icons.map(() => ({ top: '50%', left: '50%' }))
   )
@@ -92,6 +114,63 @@ const HomePage = () => {
             </button>
           </div>
         </section>
+
+
+        {/* Cookie consent banner (only show if not accepted) */}
+        {showBanner && 
+        <div className='fixed bottom-0 w-full bg-white border-t border-gray-300 shadow-md z-50'>
+          <div className='max-w-6xl mx-auto px-4 py-3 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-800'>
+            <p className='mb-2 sm:mb-0 text-md'>
+              We use cookies to enhance your experience. Read our {''}
+              <a href='#'
+                onClick = {(e) => {
+                  e.preventDefault();
+                  setShowPrivacyModal(true)
+                }}
+                className='underline text-blue-600 hover:text-blue-800'
+              >
+              privacy policy</a>.
+            </p>
+            <div className='flex gap-2'>
+                <button
+                  onClick={handleDecline}
+                  className="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400 transition m-2"
+                >
+                  Decline
+                </button>
+                <button 
+                  onClick={handleAccept}
+                  className='bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition m-2'>
+                    Accept All Cookies
+                </button>
+            </div>
+            
+          </div>
+        </div>
+        }
+
+        {/* privacy model */}
+        {showPrivacyModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex items-center justify-center z-50">
+            <div className="bg-white max-w-lg w-full p-6 rounded shadow-lg relative">
+              <button
+                onClick={() => setShowPrivacyModal(false)}
+                className="absolute top-2 right-2 text-gray-500 hover:text-black"
+              >
+                ✕
+              </button>
+              <h2 className="text-lg font-semibold mb-2">Privacy Policy</h2>
+              <div className="text-sm text-gray-700 space-y-2 overflow-y-auto max-h-[60vh]">
+                <p>We collect minimal personal information to schedule consultations and improve your experience.</p>
+                <p>This may include your name, contact info, and health concerns (when shared via forms).</p>
+                <p>We do not sell or misuse your data. You can request access or deletion at any time.</p>
+                <p>Cookies are used only to enhance your browsing and are never used to track you outside this site.</p>
+                <p>By using our site, you agree to this simple and transparent privacy approach.</p>
+              </div>
+            </div>
+          </div>
+        )}
+
 
 
         {/* About us Intro */}

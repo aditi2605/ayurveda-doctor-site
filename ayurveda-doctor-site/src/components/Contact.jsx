@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
@@ -10,6 +9,7 @@ import 'react-phone-input-2/lib/style.css';
 const Contact = () => {
     const [submitted, setSubmitted] = useState(false);
     const [phone, setPhone] = useState('');
+    const [showPrivacyModal, setShowPrivacyModal] = useState(false)
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -27,7 +27,8 @@ const Contact = () => {
       window.open(whatsappURL, "_blank");
 
       // FormSubmit setup
-      form.action = "https://formsubmit.co/c5f83eb6b4bb5ed9f02abd0c8a3cd195";
+      // form.action = `https://formsubmit.co/${process.env.NEXT_PUBLIC_FORMSUBMIT_TOKEN}`;
+      form.action = "https://formsubmit.co/drmayasayurveda@gmail.com";
       form.method = "POST";
 
       // Submit the form and show thank-you
@@ -123,6 +124,65 @@ const Contact = () => {
           <input type="hidden" name="_captcha" value="false" />
           {/* <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you" /> */}
 
+          {/* Consent notice before submission */}
+          <div className="text-sm text-gray-600 mt-2">
+            By submitting this form, you agree to our{' '}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowPrivacyModal(true)
+              }}
+              className="underline text-blue-600 hover:text-blue-800"
+            >
+              privacy policy
+            </button>.
+          </div>
+
+          {/* privacy model */}
+        {showPrivacyModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex items-center justify-center z-50">
+            <div className="bg-white max-w-lg w-full p-6 rounded shadow-lg relative">
+              <button
+                onClick={() => setShowPrivacyModal(false)}
+                className="absolute top-2 right-2 text-gray-500 hover:text-black"
+              >
+                ✕
+              </button>
+              <h2 className="text-lg text-black font-semibold mb-2">Privacy Policy</h2>
+              <div className="text-sm text-gray-700 space-y-2 overflow-y-auto max-h-[60vh]">
+                <p>We collect minimal personal information to schedule consultations and improve your experience.</p>
+                <p>This may include your name, contact info, and health concerns (when shared via forms).</p>
+                <p>We do not sell or misuse your data. You can request access or deletion at any time.</p>
+                <p>Cookies are used only to enhance your browsing and are never used to track you outside this site.</p>
+                <p>By using our site, you agree to this simple and transparent privacy approach.</p>
+              </div>
+            </div>
+          </div>
+        )}
+
+
+          {/* concent checkbox to confirm */}
+          <div className="flex items-start gap-2 text-sm text-gray-700 mt-4">
+            <input
+              type="checkbox"
+              name="consent"
+              required
+              className="mt-1"
+            />
+            <label htmlFor="consent">
+              I agree to the use of my personal data for contact and consultation purposes, as described in the{' '}
+              <button
+                type="button"
+                onClick={() => setShowPrivacyModal(true)}
+                className="underline text-blue-600 hover:text-blue-800"
+              >
+                privacy policy
+              </button>.
+            </label>
+          </div>
+
+
 
           <motion.button
             type="submit"
@@ -160,7 +220,7 @@ const Contact = () => {
           </div>
           <div>
             <p className="text-xl font-semibold text-[#6B705C]">Email</p>
-            <p className="text-gray-600 text-sm">mayasayurveda@outlook.com</p>
+            <p className="text-gray-600 text-sm">drmayasayurveda@gmail.com</p>
           </div>
         </div>
 
