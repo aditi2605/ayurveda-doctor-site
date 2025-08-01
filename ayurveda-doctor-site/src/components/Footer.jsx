@@ -34,9 +34,14 @@ const Footer = () => {
             <li className="flex items-center gap-2"><Phone size={16} /> +91 8780493489 </li>
             <li className="flex items-center gap-2"><Mail size={16} /> drmayasayurveda@gmail.com</li>
             <li className="flex items-center gap-2">
-              <Facebook size={16} className="text-[#3B5998]" />
-              <Instagram size={16} className="text-[#E1306C]" />
+              <a href="https://www.facebook.com/profile.php?id=61578838942222" target="_blank" rel="noopener noreferrer"  className="p-1 inline-block">
+                <Facebook size={16} className="text-[#3B5998]" />
+              </a>
+              <a href="https://www.instagram.com/drmayasayurveda/?hl=en" target="_blank" rel="noopener noreferrer" className="p-1 inline-block">
+                <Instagram size={16} className="text-[#E1306C]" />
+              </a>
             </li>
+
           </ul>
         </div>
       </div>
