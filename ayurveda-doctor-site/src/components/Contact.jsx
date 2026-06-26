@@ -205,7 +205,7 @@ const Contact = () => {
 
         {/* Quick Info Cards */}
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-          <div>
+          {/* <div>
             <p className="text-xl font-semibold text-[#6B705C]">Location</p>
             <p className="text-gray-600 text-sm">104,
                 Darshanam Capital,
@@ -213,7 +213,7 @@ const Contact = () => {
                 Vasna-Bhayli Road,
                 Vadodara, Gujarat, India - 391410.
             </p>
-          </div>
+          </div> */}
           <div>
             <p className="text-xl font-semibold text-[#6B705C]"> Phone</p>
             <p className="text-gray-600 text-sm">+91 8780493489 </p>
@@ -225,12 +225,12 @@ const Contact = () => {
         </div>
 
         {/* Map */}
-        <a
+        {/* <a
           href="https://www.google.com/maps/dir/?api=1&destination=Maya%27s+Ayurveda"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <div className="w-full h-72 rounded-xl overflow-hidden shadow-md mt-12">
+          <div className="w-full h-72 rounded-xl overflow-hidden shadow-md mt-12"> */}
             {/* <Image
               src="/assets/images/clinic_img.png"
               alt="Maya's Ayurveda Map"
@@ -238,7 +238,7 @@ const Contact = () => {
               height={300}
               className="object-cover w-full h-full"
             /> */}
-            <iframe
+            {/* <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2818.219923648406!2d73.12974950948933!3d22.28821177961055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc7f65fdb263b%3A0xaaeeb14147c94cd4!2sDarshanam%20Capital%20-%20Shops%2C%20Offices%20%26%20Showrooms%20for%20Sale%20in%20Vadodara!5e1!3m2!1sen!2suk!4v1748353671947!5m2!1sen!2suk"
               width="100%"
               height="100%"
@@ -248,7 +248,7 @@ const Contact = () => {
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-        </a>
+        </a> */}
       </div>
     </section>
   );
