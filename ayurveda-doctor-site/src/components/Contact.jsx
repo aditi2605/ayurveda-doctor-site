@@ -204,7 +204,7 @@ const Contact = () => {
     </div>
 
         {/* Quick Info Cards */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
           {/* <div>
             <p className="text-xl font-semibold text-[#6B705C]">Location</p>
             <p className="text-gray-600 text-sm">104,
